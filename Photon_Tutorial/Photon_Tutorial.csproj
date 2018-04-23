@@ -73,11 +73,11 @@
     <Reference Include="UnityEngine.VR">
       <HintPath>D:/Unity_5.6.4/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
     </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
-    </Reference>
     <Reference Include="Photon3Unity3D">
       <HintPath>Assets/Plugins/Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>D:/Unity_5.6.4/Editor/Data/Managed/UnityEditor.dll</HintPath>
@@ -97,6 +97,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\02.Scripts\BulletController.cs" />
+    <Compile Include="Assets\02.Scripts\EnemyControl.cs" />
+    <Compile Include="Assets\02.Scripts\GameManager.cs" />
     <Compile Include="Assets\02.Scripts\PhotonInit.cs" />
     <Compile Include="Assets\02.Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Photon Unity Networking\Demos\Demo2DJumpAndRunWithPhysics\Scripts\Demo2DJumpAndRun.cs" />

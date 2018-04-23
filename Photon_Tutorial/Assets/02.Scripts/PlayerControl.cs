@@ -12,6 +12,8 @@ public class PlayerControl : MonoBehaviour {
     private Vector3 curPos;
     private Quaternion curRot;
     public Material[] _material;
+    public Transform firePos;
+    public GameObject bullet;
 
 	void Start () {
         tr = GetComponent<Transform>();
@@ -19,7 +21,7 @@ public class PlayerControl : MonoBehaviour {
         if (pv.isMine)
         {
             GameObject.Find("Main Camera").GetComponent<SmoothFollow>().target = tr;
-            this.GetComponent<Renderer>().material = _material[0];
+            this.GetComponent<Renderer>().material = _material[0];            
         }
         else
         {
@@ -36,6 +38,10 @@ public class PlayerControl : MonoBehaviour {
 
             tr.Translate(Vector3.forward * v * Time.deltaTime * speed);
             tr.Rotate(Vector3.up * h * Time.deltaTime * rotSpeed);
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Fire();     
+            }
         }
         else
         {
@@ -56,5 +62,23 @@ public class PlayerControl : MonoBehaviour {
             curPos = (Vector3)stream.ReceiveNext();
             curRot = (Quaternion)stream.ReceiveNext();
         }
+    }
+
+    void Fire()
+    {
+        StartCoroutine(this.CreateBullet());
+        pv.RPC("FireRPC", PhotonTargets.Others);
+    }
+
+    IEnumerator CreateBullet()
+    {
+        Instantiate(bullet, firePos.position, firePos.rotation);
+        yield return null;
+    }
+
+    [PunRPC]
+    void FireRPC()
+    {
+        StartCoroutine(this.CreateBullet());
     }
 }

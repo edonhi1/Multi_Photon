@@ -7,7 +7,7 @@ namespace UnityStandardAssets.Utility
 
 		// The target we are following
 		[SerializeField]
-		public Transform target;
+		public Transform target;        //타겟이 프라이빗이라면 퍼블릭으로 교체해줄 필요가 있다.
 		// The distance in the x-z plane to the target
 		[SerializeField]
 		private float distance = 10.0f;
