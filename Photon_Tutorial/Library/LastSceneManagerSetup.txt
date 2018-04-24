@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/01.Scenes/Main.unity
+- path: D:/folder_for_leeDonghee/Unity_Projects/20171130_Basic/Assets/20171130_basic01.unity
   isLoaded: 1
   isActive: 1
